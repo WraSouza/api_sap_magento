@@ -1,0 +1,6 @@
+@API_SAP_Magento_HostAddress = http://localhost:5049
+
+GET {{API_SAP_Magento_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
