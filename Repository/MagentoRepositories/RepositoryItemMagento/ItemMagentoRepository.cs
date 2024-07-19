@@ -30,7 +30,7 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento
 
                         string datasFromStore = await response.Result.Content.ReadAsStringAsync();
 
-                        Root itens = JsonConvert.DeserializeObject<Root>(datasFromStore);
+                        Root? itens = JsonConvert.DeserializeObject<Root>(datasFromStore);
 
                         return itens;
 
@@ -39,38 +39,12 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento
                         return null;
                     }
                     
-                }
-
-                
-            
-            //  using (var client = new HttpClient(clientHandler))
-            //  {
-            //     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", content[0]);
-                
-            //     var response = client.GetAsync(url);                              
-               
-            //     string datasFromStore = await response.Result.Content.ReadAsStringAsync();
-
-            //     Root itens = JsonConvert.DeserializeObject<Root>(datasFromStore);
-
-            //     for(int i = 0; i < itens?.total_count ; i++)
-            //     {
-            //         var itemSAP = new ItemSAPEstoque(itens.items[i].sku,
-            //                                 itens.items[i].,
-            //                                 "");              
-
-            //         items.Add(itemSAP);
-            //     }
-            //  }          
-            
-
-           
+                }           
 
         }
 
         public async Task<string> GetItemId(int itemCode)
-        {
-           // ItemMagentoResponse? itemMagentoResponse = new();
+        {           
 
            string itemId;
 
@@ -86,7 +60,7 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento
                 
                 string datasFromStore = await response.Result.Content.ReadAsStringAsync();
 
-                StockItem itemMagentoResponse = JsonConvert.DeserializeObject<StockItem>(datasFromStore);            
+                StockItem? itemMagentoResponse = JsonConvert.DeserializeObject<StockItem>(datasFromStore);            
                 
                 itemId =  itemMagentoResponse.item_id;
              }          

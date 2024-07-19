@@ -1,9 +1,11 @@
+using System.Reflection;
 using API_SAP_Magento.Endpoints.Magento;
 using API_SAP_Magento.Endpoints.SAP;
 using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
 using API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP;
 using API_SAP_Magento.Services.MagentoServices.MagentoImplementations;
 using API_SAP_Magento.Services.SAPServices;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,11 @@ builder.Services.AddScoped<IItemSAPRepository, ItemSAPRepository>();
 builder.Services.AddScoped<IItemMagentoRepository, ItemMagentoRepository>();
 builder.Services.AddScoped<ItemSAPServices>(); 
 builder.Services.AddScoped<ItemsMagentoServices>();
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
+});
 
 var app = builder.Build();
 

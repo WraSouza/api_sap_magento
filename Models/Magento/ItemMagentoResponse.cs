@@ -14,7 +14,7 @@ namespace API_SAP_Magento.Models.Magento
 
         public class StockItem
         {
-             public StockItem(string item_id, string product_id, string qty, bool is_in_stock)
+             public StockItem(string? item_id, string product_id, string qty, bool is_in_stock)
         {
             this.item_id = item_id;
             this.product_id = product_id;
@@ -24,7 +24,7 @@ namespace API_SAP_Magento.Models.Magento
         }
 
 
-        public string item_id { get; set; }
+        public string? item_id { get; set; }
         public string product_id { get; set; }
         public string stock_id { get; set; }
         public string qty { get; set; }

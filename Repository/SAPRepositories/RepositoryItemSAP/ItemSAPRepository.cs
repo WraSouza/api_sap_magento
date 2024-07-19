@@ -1,6 +1,5 @@
 
 using API_SAP_Magento.Helpers.LoginHelper;
-using API_SAP_Magento.Models.Magento;
 using API_SAP_Magento.Models.SAP;
 using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
 
@@ -8,11 +7,12 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 {
     public class ItemSAPRepository : IItemSAPRepository
     {
-        private readonly IItemMagentoRepository _magentoRepository;
+        private readonly IItemMagentoRepository _magentoRepository;        
 
         public ItemSAPRepository(IItemMagentoRepository magentoRepository)
         {
             _magentoRepository = magentoRepository;
+                       
         }
         public async Task<List<ItemSAP>> GetAllItemsAsync()
         { 
@@ -44,7 +44,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 
         public async Task<List<ItemSAPEstoque>> GetEstoqueItemAsync(string itemCode)
         {
-           List<ItemSAPEstoque> estoqueItem = new();
+           List<ItemSAPEstoque> estoqueItem = new();          
 
            try
            {
@@ -76,7 +76,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
         }
 
 
-        public async Task<ItemSAP> GetItemByCode(string itemCode)
+        public async Task<ItemSAP> GetItemByCodeAsync(string itemCode)
         {
             string sql = $"SELECT T0.\"ItemCode\", T0.\"ItemName\", T0.\"CodeBars\" FROM OITM T0 WHERE T0.\"ItemCode\" = '{itemCode}' ";   
 

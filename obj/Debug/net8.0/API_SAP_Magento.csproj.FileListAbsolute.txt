@@ -8,6 +8,8 @@ C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magent
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\Coravel.dll
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\Flurl.dll
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\Flurl.Http.dll
+C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\MediatR.dll
+C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\bin\Debug\net8.0\Newtonsoft.Json.dll
@@ -23,6 +25,7 @@ C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magent
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\obj\Debug\net8.0\API_SAP_Magento.csproj.CoreCompileInputs.cache
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\obj\Debug\net8.0\API_SAP_Magento.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\obj\Debug\net8.0\API_SAP_Magento.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\obj\Debug\net8.0\API_SAP_Magento.sourcelink.json
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\wladimir.souza\Documents\Projeto API SAP\API_SAP_Magento\API_SAP_Magento\obj\Debug\net8.0\staticwebassets\msbuild.API_SAP_Magento.Microsoft.AspNetCore.StaticWebAssets.props

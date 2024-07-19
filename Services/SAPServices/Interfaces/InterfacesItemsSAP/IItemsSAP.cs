@@ -5,9 +5,9 @@ namespace API_SAP_Magento.Services.SAPServices.Interfaces.InterfacesItemsSAP
 {
     public interface IItemsSAP
     {
-        Task<List<ItemSAP>> GetAllItemsSAP();
-        Task<ItemSAP> GetItemByCode(string itemCode);
+        Task<List<ItemSAP>> GetAllItemsSAPAsync();
+        Task<ItemSAP> GetItemByCodeAsync(string itemCode);
         Task<bool> AddItemAsync(ItemSAP itemSAP);
-        Task<List<ItemSAP>> GetStockItemSAP();
+        Task<List<ItemSAP>> GetStockItemSAPAsync();
     }
 }

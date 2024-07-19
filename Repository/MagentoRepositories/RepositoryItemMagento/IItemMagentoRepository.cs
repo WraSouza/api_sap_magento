@@ -2,7 +2,6 @@
 
 using API_SAP_Magento.Models.Magento;
 using API_SAP_Magento.Models.SAP;
-using static API_SAP_Magento.Models.Magento.ItemMagentoResponse;
 using static API_SAP_Magento.Models.Magento.MagentoItem;
 
 namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento
