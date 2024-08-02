@@ -11,8 +11,7 @@ namespace API_SAP_Magento.Endpoints.Magento
         public static RouteGroupBuilder MagentoEstoqueEndpoint(this RouteGroupBuilder app)
         {
             app.MapPut("/atualiza-estoque-magento", (IMediator mediator) =>
-            {
-                //var stockItem = new StockItemCommand("","","",false); 
+            {               
 
                 var updateStockMagentoo = new UpdateStockMagentoCommand();
 
