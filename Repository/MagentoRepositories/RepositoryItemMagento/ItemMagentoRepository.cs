@@ -2,7 +2,6 @@
 using System.Net.Http.Headers;
 using System.Text;
 using API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento;
-using API_SAP_Magento.Models.Magento;
 using API_SAP_Magento.Models.SAP;
 using Newtonsoft.Json;
 using static API_SAP_Magento.Models.Magento.ItemMagentoResponse;
@@ -40,21 +39,12 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento
                         return null;
                     }
                     
-<<<<<<< HEAD
-                }           
-=======
                 }          
->>>>>>> tmp
 
         }
 
         public async Task<string> GetItemId(int itemCode)
-<<<<<<< HEAD
-        {           
-
-=======
         {
->>>>>>> tmp
            string itemId;
 
             HttpClientHandler clientHandler = new HttpClientHandler();

@@ -10,11 +10,7 @@
     <PackageReference Include="Coravel" Version="5.0.4" />
     <PackageReference Include="Flurl" Version="4.0.0" />
     <PackageReference Include="Flurl.Http" Version="4.0.2" />
-<<<<<<< HEAD
-    <PackageReference Include="MediatR" Version="12.3.0" />
-=======
     <PackageReference Include="MediatR" Version="12.4.0" />
->>>>>>> tmp
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.6" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="SAPBusinessOneSDK9.3" Version="1.0.0" />

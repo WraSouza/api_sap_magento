@@ -1,3 +1,4 @@
+using MediatR;
 using static API_SAP_Magento.Models.Magento.MagentoItem;
 
 namespace API_SAP_Magento.Endpoints.Magento
@@ -6,8 +7,9 @@ namespace API_SAP_Magento.Endpoints.Magento
     {
         public static RouteGroupBuilder MagentoItemsEndpoint(this RouteGroupBuilder app)
         {
-            app.MapGet("/busca-itens-magento", () =>
+            app.MapGet("/busca-itens-magento", (IMediator mediator) =>
             {
+                
                 return Results.Ok();  
 
             }).Produces<Root>(statusCode: StatusCodes.Status200OK)

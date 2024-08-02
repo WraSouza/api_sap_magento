@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\API_SAP_Magento.props" />
-</Project>

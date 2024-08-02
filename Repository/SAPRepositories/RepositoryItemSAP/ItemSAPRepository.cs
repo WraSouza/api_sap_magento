@@ -21,7 +21,9 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
             string sql = "SELECT T0.\"ItemCode\", T0.\"ItemName\", T0.\"CodeBars\" FROM OITM T0";          
            
            //Realizar Login
-           var company = Login.RealizarLogin();
+           Login login = new Login();
+
+           var company = login.RealizarLogin();
 
            SAPbobsCOM.Recordset ors = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
            ors.DoQuery(sql);
@@ -48,7 +50,10 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 
            try
            {
-                var company = Login.RealizarLogin();
+                //var company = Login.RealizarLogin();
+                Login login = new Login();
+
+                var company = login.RealizarLogin();
 
                  string sql = $"SELECT * FROM TJ_ESTOQUE T0 WHERE T0.\"ItemCode\" = '{itemCode}'";
 
@@ -80,7 +85,9 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
         {
             string sql = $"SELECT T0.\"ItemCode\", T0.\"ItemName\", T0.\"CodeBars\" FROM OITM T0 WHERE T0.\"ItemCode\" = '{itemCode}' ";   
 
-            var company = Login.RealizarLogin();
+           Login login = new Login();
+
+            var company = login.RealizarLogin();
 
             SAPbobsCOM.Recordset ors =  (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
             ors.DoQuery(sql);

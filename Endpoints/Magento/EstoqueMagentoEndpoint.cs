@@ -2,7 +2,6 @@
 using API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento;
 using API_SAP_Magento.Models.SAP;
 using MediatR;
-using static API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento.UpdateStockMagentoCommand;
 
 namespace API_SAP_Magento.Endpoints.Magento
 {
