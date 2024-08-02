@@ -1,9 +1,9 @@
 using System.Reflection;
 using API_SAP_Magento.Endpoints.Magento;
 using API_SAP_Magento.Endpoints.SAP;
+using API_SAP_Magento.Models.SAP;
 using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
 using API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP;
-using API_SAP_Magento.Services.MagentoServices.MagentoImplementations;
 using API_SAP_Magento.Services.SAPServices;
 using MediatR;
 
@@ -17,7 +17,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IItemSAPRepository, ItemSAPRepository>();
 builder.Services.AddScoped<IItemMagentoRepository, ItemMagentoRepository>();
 builder.Services.AddScoped<ItemSAPServices>(); 
-builder.Services.AddScoped<ItemsMagentoServices>();
+builder.Services.Configure<LoginSAP>(builder.Configuration.GetSection("SAPLogin"));
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
+});
 
 builder.Services.AddMediatR(cfg =>
 {
@@ -36,6 +41,10 @@ if (app.Environment.IsDevelopment())
 app.MapGroup("")
 .SAPItemsEndpoint()
 .WithTags("SAP - Itens");
+
+app.MapGroup("")
+.MagentoEstoqueEndpoint()
+.WithTags("Magento - Estoque");
 
 app.MapGroup("")
 .MagentoItemsEndpoint()

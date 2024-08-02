@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("API_SAP_Magento")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf0a9e8dcdc69ffae9e9d2042319e8e39e68bbe5")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a686aa7a13287d514ee2b38f390678a7b3d21f0b")]
+>>>>>>> tmp
 [assembly: System.Reflection.AssemblyProductAttribute("API_SAP_Magento")]
 [assembly: System.Reflection.AssemblyTitleAttribute("API_SAP_Magento")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
