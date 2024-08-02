@@ -1,20 +1,9 @@
-<<<<<<< HEAD:Services/MagentoServices/MagentoImplementations/ItemsMagentoServices.cs
-
 using API_SAP_Magento.Mediator.Queries.GetItemsSAPEstoque;
-using API_SAP_Magento.Models.Magento;
-using API_SAP_Magento.Models.SAP;
-using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
-using API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP;
-using API_SAP_Magento.Services.MagentoServices.MagentoInterfaces.InterfacesItemsMagento;
-using MediatR;
-using static API_SAP_Magento.Models.Magento.ItemMagentoResponse;
-=======
 using API_SAP_Magento.Models.SAP;
 using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
 using API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP;
 using MediatR;
 using static API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento.UpdateStockMagentoCommand;
->>>>>>> tmp:Mediator/Commands/MagentoCommands/UpdateStockMagento/UpdateStockMagentCommandHandler.cs
 using static API_SAP_Magento.Models.Magento.MagentoItem;
 
 namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
@@ -25,15 +14,10 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
         private readonly IItemSAPRepository _itemSAPRepository;
         private readonly IMediator _mediator;
 
-<<<<<<< HEAD:Services/MagentoServices/MagentoImplementations/ItemsMagentoServices.cs
-        public ItemsMagentoServices(IItemMagentoRepository itemMagento, IItemSAPRepository itemSAPRepository, IMediator mediator)
-=======
         public UpdateStockMagentCommandHandler(IItemMagentoRepository itemMagentoRepository, IItemSAPRepository itemSAPRepository)
->>>>>>> tmp:Mediator/Commands/MagentoCommands/UpdateStockMagento/UpdateStockMagentCommandHandler.cs
         {
             _itemMagentoRepository = itemMagentoRepository;
-            _itemSAPRepository = itemSAPRepository;
-            _mediator = mediator;
+            _itemSAPRepository = itemSAPRepository;            
         }
         public async Task<Unit> Handle(UpdateStockMagentoCommand request, CancellationToken cancellationToken)
         {
@@ -55,11 +39,7 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
                 {
                     if(itemSAP.Quantidade > 0)
                     {
-<<<<<<< HEAD:Services/MagentoServices/MagentoImplementations/ItemsMagentoServices.cs
-                         itemMagento = new StockItem(itensInMagento?.items[i]?.id.ToString(),
-=======
                          itemMagento = new StockItemCommand(itensInMagento.items[i].id.ToString(),
->>>>>>> tmp:Mediator/Commands/MagentoCommands/UpdateStockMagento/UpdateStockMagentCommandHandler.cs
                                                      itensInMagento.items[i].id.ToString(),
                                                      itemSAP.Quantidade.ToString(),true );
                         
