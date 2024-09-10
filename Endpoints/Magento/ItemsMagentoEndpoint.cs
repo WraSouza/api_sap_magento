@@ -7,7 +7,7 @@ namespace API_SAP_Magento.Endpoints.Magento
     {
         public static RouteGroupBuilder MagentoItemsEndpoint(this RouteGroupBuilder app)
         {
-            app.MapGet("/busca-itens-magento", (IMediator mediator) =>
+            app.MapGet("/itens-magento", (IMediator mediator) =>
             {
                 
                 return Results.Ok();  

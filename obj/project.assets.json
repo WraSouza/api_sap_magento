@@ -1108,11 +1108,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\API_SAP_Magento.csproj",
+      "projectUniqueName": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\API_SAP_Magento.csproj",
       "projectName": "API_SAP_Magento",
-      "projectPath": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\API_SAP_Magento.csproj",
+      "projectPath": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\API_SAP_Magento.csproj",
       "packagesPath": "C:\\Users\\wladimir.souza\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\obj\\",
+      "outputPath": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1207,7 +1207,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

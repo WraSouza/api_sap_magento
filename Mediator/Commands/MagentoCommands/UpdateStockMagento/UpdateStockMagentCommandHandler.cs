@@ -14,10 +14,11 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
         private readonly IItemSAPRepository _itemSAPRepository;
         private readonly IMediator _mediator;
 
-        public UpdateStockMagentCommandHandler(IItemMagentoRepository itemMagentoRepository, IItemSAPRepository itemSAPRepository)
+        public UpdateStockMagentCommandHandler(IItemMagentoRepository itemMagentoRepository, IItemSAPRepository itemSAPRepository, IMediator mediator)
         {
             _itemMagentoRepository = itemMagentoRepository;
-            _itemSAPRepository = itemSAPRepository;            
+            _itemSAPRepository = itemSAPRepository;   
+            _mediator = mediator;         
         }
         public async Task<Unit> Handle(UpdateStockMagentoCommand request, CancellationToken cancellationToken)
         {
@@ -30,7 +31,9 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
            
             for(int i = 0; i < itensInMagento?.total_count; i++)
             {
-                //Buscar no SAP apenas os itens que existem na Loja Virtual
+                try
+                {
+                     //Buscar no SAP apenas os itens que existem na Loja Virtual
                 var datas = new GetItemsSAPEstoqueQuery(itensInMagento?.items[i].sku);
 
                 List<ItemSAPEstoque> itemsInSAP = await _mediator.Send(datas);
@@ -53,7 +56,12 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
                     itemMagentoResponse = new UpdateStockMagentoCommand(itemMagento);
 
                      _itemMagentoRepository.UpdateStockMagento(itemMagentoResponse,itemSAP.ItemCode);
-                }              
+                }   
+                }catch(Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                          
                 
             } 
 

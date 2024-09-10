@@ -8,9 +8,8 @@ namespace API_SAP_Magento.Endpoints.SAP
         public static RouteGroupBuilder SAPItemsEndpoint(this RouteGroupBuilder app)
         {           
             
-            app.MapGet("/busca-itens-sap", async (IMediator mediator) =>
-            {                            
-
+            app.MapGet("/itens-sap", (IMediator mediator) =>
+            { 
                 return Results.Ok();  
 
             }).Produces<ItemSAP>(statusCode: StatusCodes.Status200OK)
@@ -18,10 +17,8 @@ namespace API_SAP_Magento.Endpoints.SAP
               .WithName("Get-Items-SAP")
               .WithOpenApi();
 
-            app.MapGet("/busca-itens-sap-nome/{id}", (int id,IMediator mediator) =>
+            app.MapGet("/itens-sap/{id}", (int id,IMediator mediator) =>
             {
-                
-
                 return Results.Ok();  
 
             }).Produces<ItemSAP>(statusCode: StatusCodes.Status200OK)
