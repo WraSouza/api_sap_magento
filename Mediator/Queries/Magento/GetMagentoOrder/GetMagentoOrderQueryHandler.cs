@@ -14,12 +14,7 @@ namespace API_SAP_Magento.Mediator.Queries.Magento.GetMagentoOrder
 
         public async Task<List<ItemMagentoDTO>> Handle(GetMagentoOrderQuery request, CancellationToken cancellationToken)
         {            
-            return await _businessPartnerMagentoRepository.GetMagentoOrdersDTOAsync();
-
-            // var partnerSAP = response
-            //     .Select(x => new BusinessPartnerSAP(x.customer_firstname, x.street, x.telephone, x.vat_id, x.email))
-            //     .ToList();
-                 
+            return await _businessPartnerMagentoRepository.GetMagentoOrdersDTOAsync();                 
         }
     }
 }

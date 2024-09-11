@@ -7,13 +7,12 @@ namespace API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepositor
     public class SAPBPRepository : ISAPBPRepository
     {        
         private readonly Login _login;
-
         public SAPBPRepository(Login login)
         {           
             _login = login;
         }
 
-        public async Task<int> CreateSAPBPAsync(BusinessPartnerSAP partnerSAP)
+        public int CreateSAPBPAsync(BusinessPartnerSAP partnerSAP)
         {      
             try
             {
@@ -28,10 +27,12 @@ namespace API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepositor
                 businessPartnerSAP.Addresses.Block = partnerSAP.Bairro;
                 businessPartnerSAP.Addresses.ZipCode = partnerSAP.ZipCode;
                 businessPartnerSAP.Addresses.City = partnerSAP.Cidade;
+                businessPartnerSAP.Addresses.StreetNo = partnerSAP.Numero;
                 businessPartnerSAP.CardName = partnerSAP.CardName;
                 businessPartnerSAP.EmailAddress = partnerSAP.Email;
                 businessPartnerSAP.Phone1 = partnerSAP.Telefone;      
-                businessPartnerSAP.GroupCode = 109;            
+                businessPartnerSAP.GroupCode = 109; 
+                businessPartnerSAP.FiscalTaxID.TaxId4 = partnerSAP.CPF;                            
 
                 businessPartnerSAP.Add();
 

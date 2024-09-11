@@ -11,7 +11,7 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryBusinessPartn
 
         public async Task<List<ItemMagentoDTO>> GetMagentoOrdersDTOAsync()
         {
-            List<ItemMagentoDTO> allOrders = new();
+            List<ItemMagentoDTO> allOrders = [];
            //var content = File.ReadAllLines(@"C:\Users\wladimir.souza\Downloads\token.txt");
             var content = File.ReadAllLines(@"C:\Users\wladimir.souza\Downloads\token_loja.txt");
 
@@ -32,7 +32,7 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryBusinessPartn
 
                         for(int i = 0; i < int.Parse(itens.total_count) ; i++)
                         {
-                            if(itens.items[i].status == "processing")
+                            if(itens.items?[i].status == "processing")
                             {
                                 allOrders.Add(itens.items[i]);
                             }                             
@@ -41,10 +41,12 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryBusinessPartn
                         return  allOrders;
 
                     }catch(Exception ex)
-                    {                       
-                        return null;
+                    {                                      
+                        Console.WriteLine(ex.ToString());
                     }
                 }
+
+                return allOrders;
         }
     }
 }

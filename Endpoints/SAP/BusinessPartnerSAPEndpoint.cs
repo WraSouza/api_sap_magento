@@ -35,9 +35,7 @@ namespace API_SAP_Magento.Endpoints.SAP
 
                 return Results.Ok();  
 
-            }).Produces<BusinessPartnerSAP>(statusCode: StatusCodes.Status200OK)
-              .Produces<BusinessPartnerSAP>(statusCode: StatusCodes.Status400BadRequest)
-              .WithName("Put-BusinessPartner-SAP")
+            }).WithName("Put-BusinessPartner-SAP")
               .WithOpenApi();
 
             return app;

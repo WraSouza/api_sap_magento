@@ -22,11 +22,7 @@ namespace API_SAP_Magento.Mediator.Commands.SAPCommands.SAPBusinessPartner
 
             for(int i = 0; i < bpInMagento.Count; i++)
             {
-                //bool verifyIfBPExist = await _sapRepository.VerifyIfBPExist(bpInMagento[i].billing_address.vat_id);   
-
-                 string name = bpInMagento[i].billing_address.firstname + " " + bpInMagento[i].customer_lastname;
-
-                bool verifyIfBPExist = await _sapRepository.VerifyIfBPExist(name.ToUpper());
+                bool verifyIfBPExist = await _sapRepository.VerifyIfBPExist(bpInMagento[i].billing_address.vat_id);                
 
                 if(!verifyIfBPExist)
                 {            
@@ -37,14 +33,15 @@ namespace API_SAP_Magento.Mediator.Commands.SAPCommands.SAPBusinessPartner
 
                         var bpInSAP = new BusinessPartnerSAP(fullName.ToUpper()
                                                              ,bpInMagento[j].billing_address.street[0].ToUpper()
-                                                             ,bpInMagento[j].billing_address.street[3].ToUpper()
+                                                             ,bpInMagento[j].billing_address.street[1].ToUpper()
+                                                             ,bpInMagento[j].billing_address.street[3]
                                                              ,bpInMagento[j].billing_address.postcode
                                                              ,bpInMagento[j].billing_address.city
                                                              ,bpInMagento[j].billing_address.telephone
                                                              ,bpInMagento[j].billing_address.vat_id
                                                              ,bpInMagento[j].billing_address.email);
 
-                        await _sapRepository.CreateSAPBPAsync(bpInSAP);
+                        _sapRepository.CreateSAPBPAsync(bpInSAP);
                     }
                     
                 }                             
