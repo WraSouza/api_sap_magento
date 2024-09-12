@@ -34,7 +34,7 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
                 try
                 {
                      //Buscar no SAP apenas os itens que existem na Loja Virtual
-                var datas = new GetItemsSAPEstoqueQuery(itensInMagento?.items[i].sku);
+                var datas = new GetItemsSAPEstoqueQuery(itensInMagento?.items?[i].sku);
 
                 List<ItemSAPEstoque> itemsInSAP = await _mediator.Send(datas);
 
@@ -42,14 +42,14 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
                 {
                     if(itemSAP.Quantidade > 0)
                     {
-                         itemMagento = new StockItemCommand(itensInMagento.items[i].id.ToString(),
-                                                     itensInMagento.items[i].id.ToString(),
+                         itemMagento = new StockItemCommand(itensInMagento?.items?[i].id.ToString(),
+                                                     itensInMagento?.items?[i].id.ToString(),
                                                      itemSAP.Quantidade.ToString(),true );
                         
                     }else
                     {
-                         itemMagento = new StockItemCommand(itensInMagento.items[i].id.ToString(),
-                                                     itensInMagento.items[i].id.ToString(),
+                         itemMagento = new StockItemCommand(itensInMagento?.items?[i].id.ToString(),
+                                                     itensInMagento?.items?[i].id.ToString(),
                                                      itemSAP.Quantidade.ToString(),false );
                     }
 

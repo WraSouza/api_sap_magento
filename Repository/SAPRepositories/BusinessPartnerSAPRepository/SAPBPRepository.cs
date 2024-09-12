@@ -45,7 +45,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepositor
             
         }
 
-        public async Task<bool> VerifyIfBPExist(string? cpf)
+        public async Task<bool> VerifyIfBPExist(string cpf)
         {
             bool verifyIfBPExist = false;
            

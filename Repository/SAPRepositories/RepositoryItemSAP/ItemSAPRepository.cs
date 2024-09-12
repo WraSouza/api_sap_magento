@@ -1,23 +1,21 @@
 
 using API_SAP_Magento.Helpers.LoginHelper;
 using API_SAP_Magento.Models.SAP;
-using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
 
 namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 {
     public class ItemSAPRepository : IItemSAPRepository
     {
-        private readonly IItemMagentoRepository _magentoRepository;
+        
         private readonly Login _login;
 
-        public ItemSAPRepository(IItemMagentoRepository magentoRepository, Login login)
-        {
-            _magentoRepository = magentoRepository;
+        public ItemSAPRepository(Login login)
+        {           
             _login = login;
         }
         public async Task<List<ItemSAP>> GetAllItemsAsync()
         { 
-            List<ItemSAP> items = new List<ItemSAP>();
+            List<ItemSAP> items = new();
 
             string sql = "SELECT T0.\"ItemCode\", T0.\"ItemName\", T0.\"CodeBars\" FROM OITM T0";       
 
