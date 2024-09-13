@@ -1,4 +1,6 @@
 
+using System.ComponentModel.DataAnnotations;
+
 namespace API_SAP_Magento.Models.SAP
 {
     public class BusinessPartnerSAP
@@ -16,14 +18,23 @@ namespace API_SAP_Magento.Models.SAP
             Email = email;
         }
 
+        [Required]
         public string? CardName { get; private set; }
+        [Required]
         public string? Rua { get; private set; }
+        [Required]
         public string? Numero { get; private set; }
+        [Required]
         public string? Bairro { get; private set; }
+        [Required]
+        [StringLength(9)]
         public string? ZipCode { get; private set; }
+        [Required]
         public string? Cidade { get; private set; }
         public string? Telefone { get; private set; }
+        [Required]
         public string? CPF { get; private set; }
+        [Required]
         public string? Email { get; private set; }
     }
 }

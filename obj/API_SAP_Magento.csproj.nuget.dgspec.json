@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[8.0.6, )"
             },
+            "MiniValidation": {
+              "target": "Package",
+              "version": "[0.9.1, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -86,13 +90,37 @@
               "target": "Package",
               "version": "[8.0.2, )"
             },
+            "Serilog.Enrichers.Environment": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Serilog.Enrichers.Memory": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            },
+            "Serilog.Enrichers.Process": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Serilog.Enrichers.Thread": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
             "Serilog.Sinks.Console": {
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "Serilog.Sinks.Email": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
             "Serilog.Sinks.File": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Serilog.Sinks.Seq": {
+              "target": "Package",
+              "version": "[9.0.0-dev-00310, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

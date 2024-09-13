@@ -7,6 +7,7 @@ using API_SAP_Magento.Repository.MagentoRepositories.RepositoryBusinessPartnerMa
 using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
 using API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepository;
 using API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,23 @@ builder.Services.AddScoped<IBusinessPartnerMagentoRepository, BusinessPartnerMag
 builder.Services.AddSingleton<Login>();
 builder.Services.Configure<LoginSAP>(builder.Configuration.GetSection("SAPLogin"));
 
+builder.Logging.ClearProviders();
+
+var logger = new LoggerConfiguration()
+.Enrich.WithEnvironmentName()
+.Enrich.WithMachineName()
+.Enrich.WithMemoryUsage()
+.WriteTo.Console()
+.WriteTo.Seq("http://192.168.3.107:5341/")
+.CreateLogger();
+
+builder.Logging.AddSerilog(logger);
+
+builder.Services.AddSwaggerGen(opt => 
+{
+    opt.SwaggerDoc("v1", new () { Title = "API SAP Magento", Version = "v1" });
+});
+
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
@@ -29,13 +47,13 @@ builder.Services.AddMediatR(cfg =>
 
 var app = builder.Build();
 
-app.UseSwaggerUI(config =>
-{
-    config.ConfigObject.AdditionalItems["syntaxHighlight"] = new Dictionary<string, object>
-    {
-        ["activated"] = false
-    };
-});
+// app.UseSwaggerUI(config =>
+// {
+//     config.ConfigObject.AdditionalItems["syntaxHighlight"] = new Dictionary<string, object>
+//     {
+//         ["activated"] = false
+//     };
+// });
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

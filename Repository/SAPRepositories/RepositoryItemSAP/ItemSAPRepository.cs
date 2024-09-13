@@ -4,22 +4,15 @@ using API_SAP_Magento.Models.SAP;
 
 namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 {
-    public class ItemSAPRepository : IItemSAPRepository
-    {
-        
-        private readonly Login _login;
-
-        public ItemSAPRepository(Login login)
-        {           
-            _login = login;
-        }
+    public class ItemSAPRepository(Login login) : IItemSAPRepository
+    {        
         public async Task<List<ItemSAP>> GetAllItemsAsync()
         { 
             List<ItemSAP> items = new();
 
             string sql = "SELECT T0.\"ItemCode\", T0.\"ItemName\", T0.\"CodeBars\" FROM OITM T0";       
 
-           var company = _login.RealizarLogin();
+           var company = login.RealizarLogin();
 
            SAPbobsCOM.Recordset ors = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
            ors.DoQuery(sql);
@@ -46,7 +39,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 
            try
            {
-                var company = _login.RealizarLogin();
+                var company = login.RealizarLogin();
 
                  string sql = $"SELECT * FROM TJ_ESTOQUE T0 WHERE T0.\"ItemCode\" = '{itemCode}'";
 
@@ -78,7 +71,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
         {
             string sql = $"SELECT T0.\"ItemCode\", T0.\"ItemName\", T0.\"CodeBars\" FROM OITM T0 WHERE T0.\"ItemCode\" = '{itemCode}' ";        
 
-             var company = _login.RealizarLogin();
+             var company = login.RealizarLogin();
 
             SAPbobsCOM.Recordset ors =  (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
             ors.DoQuery(sql);

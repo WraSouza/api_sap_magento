@@ -9,6 +9,11 @@ namespace API_SAP_Magento.Mediator.Queries.SAP.GetAllSAPItensEstoque
         {
             ItemCode = itemCode;
         }
+
+        public GetItensSAPEstoqueQuery()
+        {
+            
+        }
         public string ItemCode { get; set; }
         public int Quantidade { get; set; }
     }

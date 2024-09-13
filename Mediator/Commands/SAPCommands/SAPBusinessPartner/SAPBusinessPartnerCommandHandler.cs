@@ -23,7 +23,7 @@ namespace API_SAP_Magento.Mediator.Commands.SAPCommands.SAPBusinessPartner
 
             for(int i = 0; i < bpInMagento?.Count; i++)
             {
-                bool verifyIfBPExist = await _sapRepository.VerifyIfBPExist(bpInMagento[i].billing_address.vat_id);                
+                bool verifyIfBPExist = await _sapRepository.VerifyIfBPExist(bpInMagento[i].billing_address.vat_id);                         
 
                 if(!verifyIfBPExist)
                 {            

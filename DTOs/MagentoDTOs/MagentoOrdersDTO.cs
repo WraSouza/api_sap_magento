@@ -34,17 +34,12 @@ namespace API_SAP_Magento.DTOs.MagentoDTOs
     }
 
     public class ItemMagentoDTO
-    {
-        public string? base_currency_code { get; set; }       
-        public double base_shipping_amount { get; set; }
-        public double base_shipping_canceled { get; set; }        
-        public string? customer_email { get; set; }
-        public string? customer_firstname { get; set; }
-        public string? customer_group_id { get; set; }         
+    {                  
         public string? customer_lastname { get; set; }        
         public string? state { get; set; }
-        public string? status { get; set; }      
-        public List<ItemMagentoDTO>? items { get; set; }
+        public string? status { get; set; }  
+        public string? name { get; set; } 
+        public List<ItemMagentoDTO>? items { get; set; }     
         public BillingAddress? billing_address { get; set; }  
         public string? sku { get; set; }
         

@@ -1,5 +1,7 @@
 
 
+using System.ComponentModel.DataAnnotations;
+
 namespace API_SAP_Magento.Models.SAP
 {
     public class EstoqueItemSAP
@@ -12,9 +14,13 @@ namespace API_SAP_Magento.Models.SAP
             IsInStock = isInStock;
         }
 
+        [Required]
         public string? IdMagento { get; private set; }
-        public string? ItemCode { get; private set; }       
+        [Required]
+        public string? ItemCode { get; private set; }   
+        [Required]    
         public string? OnHand { get; private set; }
+        [Required]
         public bool IsInStock { get; private set; }
 
     }

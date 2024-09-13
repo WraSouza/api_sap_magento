@@ -1,5 +1,7 @@
 
 
+using System.ComponentModel.DataAnnotations;
+
 namespace API_SAP_Magento.Models.SAP
 {
     public class ItemSAPEstoque
@@ -9,8 +11,10 @@ namespace API_SAP_Magento.Models.SAP
             ItemCode = itemCode;
             Quantidade = quantidade;
         }
-
+        
+        [Required]
         public string ItemCode { get; set; }
+        [Required]
         public int? Quantidade { get; set; }
     }
 }
