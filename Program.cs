@@ -8,6 +8,7 @@ using API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento;
 using API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepository;
 using API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP;
 using Serilog;
+using Serilog.Sinks.Grafana.Loki;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,8 +31,19 @@ var logger = new LoggerConfiguration()
 .Enrich.WithMachineName()
 .Enrich.WithMemoryUsage()
 .WriteTo.Console()
-.WriteTo.Seq("http://192.168.3.107:5341/")
+.WriteTo.GrafanaLoki("http://192.168.3.148:3100",
+new List<LokiLabel>()
+{
+  new()
+  {
+    Key = "Service",
+    Value = System.IO.Path.GetFileName(Assembly.GetExecutingAssembly().Location).Replace(".dll","")
+  }
+})
+.WriteTo.Seq("http://192.168.3.148:5341/")
 .CreateLogger();
+
+
 
 builder.Logging.AddSerilog(logger);
 
@@ -46,6 +58,8 @@ builder.Services.AddMediatR(cfg =>
 });
 
 var app = builder.Build();
+
+
 
 // app.UseSwaggerUI(config =>
 // {
@@ -84,7 +98,6 @@ app.MapGroup("")
 
 
 app.UseHttpsRedirection();
-
 
 app.Run();
 

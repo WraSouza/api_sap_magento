@@ -55,7 +55,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepositor
 
             try
             {                
-                 SAPbobsCOM.Recordset ors =  (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+                 Recordset ors =  (Recordset)company.GetBusinessObject(BoObjectTypes.BoRecordset);
                  ors.DoQuery(sql);
 
                  if(ors.RecordCount > 0)

@@ -17,6 +17,7 @@
           "Newtonsoft.Json": "13.0.3",
           "SAPBusinessOneSDK9.3": "1.0.0",
           "SapHana.DotNetCore.Data.Provider": "2.11.14",
+          "Sentry.Serilog": "4.10.2",
           "Serilog.AspNetCore": "8.0.2",
           "Serilog.Enrichers.Environment": "3.0.1",
           "Serilog.Enrichers.Memory": "1.0.4",
@@ -25,6 +26,7 @@
           "Serilog.Sinks.Console": "6.0.0",
           "Serilog.Sinks.Email": "4.0.0",
           "Serilog.Sinks.File": "6.0.0",
+          "Serilog.Sinks.Grafana.Loki": "8.3.0",
           "Serilog.Sinks.Seq": "9.0.0-dev-00310",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
@@ -249,6 +251,26 @@
           }
         }
       },
+      "Sentry/4.10.2": {
+        "runtime": {
+          "lib/net8.0/Sentry.dll": {
+            "assemblyVersion": "4.10.2.0",
+            "fileVersion": "4.10.2.0"
+          }
+        }
+      },
+      "Sentry.Serilog/4.10.2": {
+        "dependencies": {
+          "Sentry": "4.10.2",
+          "Serilog": "4.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Sentry.Serilog.dll": {
+            "assemblyVersion": "4.10.2.0",
+            "fileVersion": "4.10.2.0"
+          }
+        }
+      },
       "Serilog/4.0.0": {
         "runtime": {
           "lib/net8.0/Serilog.dll": {
@@ -412,6 +434,18 @@
           "lib/net8.0/Serilog.Sinks.File.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Grafana.Loki/8.3.0": {
+        "dependencies": {
+          "Serilog": "4.0.0",
+          "System.Text.Json": "8.0.4"
+        },
+        "runtime": {
+          "lib/net7.0/Serilog.Sinks.Grafana.Loki.dll": {
+            "assemblyVersion": "8.3.0.0",
+            "fileVersion": "8.3.0.0"
           }
         }
       },
@@ -689,6 +723,20 @@
       "path": "saphana.dotnetcore.data.provider/2.11.14",
       "hashPath": "saphana.dotnetcore.data.provider.2.11.14.nupkg.sha512"
     },
+    "Sentry/4.10.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B5amIE3VXi4BdERxExlmaRWTfUNmv7uiznMdyVZBAbT9pq/uS8rabQ2/K3qNCpew9hzGvHeA7oRLaumS84COEA==",
+      "path": "sentry/4.10.2",
+      "hashPath": "sentry.4.10.2.nupkg.sha512"
+    },
+    "Sentry.Serilog/4.10.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-k4iQtZU/f3Vsd0qspHLcH6oN12n6/6qMLbqO6KBhS9wa/4NOr54Fv0XZzagQ2yTImJzZdRrpoBjB2D2/+B+yCA==",
+      "path": "sentry.serilog/4.10.2",
+      "hashPath": "sentry.serilog.4.10.2.nupkg.sha512"
+    },
     "Serilog/4.0.0": {
       "type": "package",
       "serviceable": true,
@@ -786,6 +834,13 @@
       "sha512": "sha512-lxjg89Y8gJMmFxVkbZ+qDgjl+T4yC5F7WSLTvA+5q0R04tfKVLRL/EHpYoJ/MEQd2EeCKDuylBIVnAYMotmh2A==",
       "path": "serilog.sinks.file/6.0.0",
       "hashPath": "serilog.sinks.file.6.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Grafana.Loki/8.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bHo/WvvtClr57onuYLz3h7CzTKe9z0kvLfzDJftzjkSo4jTyUrZH5rn4YXj/AsilKN4flJ8Psezza7mmWDELcA==",
+      "path": "serilog.sinks.grafana.loki/8.3.0",
+      "hashPath": "serilog.sinks.grafana.loki.8.3.0.nupkg.sha512"
     },
     "Serilog.Sinks.Seq/9.0.0-dev-00310": {
       "type": "package",
