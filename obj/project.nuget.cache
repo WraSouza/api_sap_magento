@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TkePf/ZJYMs=",
+  "dgSpecHash": "rgkKBrB7Obg=",
   "success": true,
-  "projectFilePath": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\API_SAP_Magento.csproj",
+  "projectFilePath": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\API_SAP_Magento\\API_SAP_Magento\\API_SAP_Magento.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wladimir.souza\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\wladimir.souza\\.nuget\\packages\\coravel\\5.0.4\\coravel.5.0.4.nupkg.sha512",

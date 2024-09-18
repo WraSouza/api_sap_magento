@@ -7,23 +7,15 @@ using static API_SAP_Magento.DTOs.MagentoDTOs.MagentoOrdersDTO;
 
 namespace API_SAP_Magento.Mediator.Commands.SAPCommands.SAPBusinessPartner
 {
-    public class SAPBusinessPartnerCommandHandler : IRequestHandler<SAPBusinessPartnerCommand, int>
+    public class SAPBusinessPartnerCommandHandler(IBusinessPartnerMagentoRepository magentoRepository, ISAPBPRepository sapRepository) : IRequestHandler<SAPBusinessPartnerCommand, int>
     {
-        private readonly IBusinessPartnerMagentoRepository _magentoRepository;
-        private readonly ISAPBPRepository _sapRepository;
-
-        public SAPBusinessPartnerCommandHandler(IBusinessPartnerMagentoRepository magentoRepository, ISAPBPRepository sapRepository)
-        {
-            _magentoRepository = magentoRepository;
-            _sapRepository = sapRepository;
-        }
         public async Task<int> Handle(SAPBusinessPartnerCommand request, CancellationToken cancellationToken)
         {
-            List<ItemMagentoDTO> bpInMagento = await _magentoRepository.GetMagentoOrdersDTOAsync();  
+            List<ItemMagentoDTO> bpInMagento = await magentoRepository.GetMagentoOrdersDTOAsync();  
 
             for(int i = 0; i < bpInMagento?.Count; i++)
             {
-                bool verifyIfBPExist = await _sapRepository.VerifyIfBPExist(bpInMagento[i].billing_address.vat_id);                         
+                bool verifyIfBPExist = await sapRepository.VerifyIfBPExist(bpInMagento[i].billing_address.vat_id);                         
 
                 if(!verifyIfBPExist)
                 {            
@@ -44,7 +36,7 @@ namespace API_SAP_Magento.Mediator.Commands.SAPCommands.SAPBusinessPartner
                                                              ,bpInMagento?[j].billing_address?.vat_id
                                                              ,bpInMagento?[j].billing_address?.email);
 
-                        _sapRepository.CreateSAPBPAsync(bpInSAP);
+                        sapRepository.CreateSAPBPAsync(bpInSAP);
                     }
                     
                 }                             

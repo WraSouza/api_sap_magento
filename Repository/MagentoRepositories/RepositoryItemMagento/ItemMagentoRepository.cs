@@ -43,7 +43,7 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento
 
         }
 
-        public async Task<string> GetItemId(int itemCode)
+        public async Task<string> GetItemIdAsync(int itemCode)
         {
            string itemId;
 
@@ -67,7 +67,7 @@ namespace API_SAP_Magento.Repository.MagentoRepositories.RepositoryItemMagento
             return itemId;
         }
 
-        public Task<ItemSAP> GetItemMagentoByCode(string itemCode)
+        public Task<ItemSAP> GetItemMagentoByCodeAsync(string itemCode)
         {
             throw new NotImplementedException();
         }

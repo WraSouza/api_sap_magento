@@ -4,19 +4,14 @@ using SAPbobsCOM;
 
 namespace API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepository
 {
-    public class SAPBPRepository : ISAPBPRepository
+    public class SAPBPRepository(Login login) : ISAPBPRepository
     {        
-        private readonly Login _login;
-        public SAPBPRepository(Login login)
-        {           
-            _login = login;
-        }
 
         public int CreateSAPBPAsync(BusinessPartnerSAP partnerSAP)
         {      
             try
             {
-                var company = _login.RealizarLogin();
+                var company = login.RealizarLogin();
                     
                 BusinessPartners businessPartnerSAP = (BusinessPartners)company.GetBusinessObject(BoObjectTypes.oBusinessPartners);
                    
@@ -45,13 +40,13 @@ namespace API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepositor
             
         }
 
-        public async Task<bool> VerifyIfBPExist(string cpf)
+        public async Task<bool> VerifyIfBPExistsAsync(string cpf)
         {
             bool verifyIfBPExist = false;
            
             string sql = $"SELECT T0.\"CardCode\" FROM CRD7 T0 WHERE T0.\"TaxId4\" = '{cpf}'";
 
-            var company = _login.RealizarLogin();            
+            var company = login.RealizarLogin();            
 
             try
             {                

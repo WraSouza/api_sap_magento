@@ -21,19 +21,7 @@ namespace API_SAP_Magento.Endpoints.Magento
               .Produces<ItemSAP>(statusCode: StatusCodes.Status400BadRequest)
               .WithName("Update-Estoque-Magento")
               .WithOpenApi();
-            // app.MapPut("/atualiza-estoque-magento", (IMediator mediator) =>
-            // {               
-
-            //     var updateStockMagentoo = new UpdateStockMagentoCommand();
-
-            //     var atualizaEstoque = mediator.Send(updateStockMagentoo);
-                         
-            //     return Results.Ok();  
-
-            // }).Produces<ItemSAP>(statusCode: StatusCodes.Status200OK)
-            //   .Produces<ItemSAP>(statusCode: StatusCodes.Status400BadRequest)
-            //   .WithName("Update-Estoque-Magento")
-            //   .WithOpenApi();
+            
               
             return app;
         }

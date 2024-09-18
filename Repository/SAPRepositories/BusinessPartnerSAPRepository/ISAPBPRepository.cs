@@ -5,7 +5,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.BusinessPartnerSAPRepositor
     public interface ISAPBPRepository
     {
         int CreateSAPBPAsync(BusinessPartnerSAP partnerSAP);
-        Task<bool> VerifyIfBPExist(string cpf);
+        Task<bool> VerifyIfBPExistsAsync(string cpf);
 
         
     }

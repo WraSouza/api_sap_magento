@@ -8,18 +8,9 @@ using static API_SAP_Magento.Models.Magento.MagentoItem;
 
 namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
 {
-    public class UpdateStockMagentCommandHandler : IRequestHandler<UpdateStockMagentoCommand, Unit>
+    public class UpdateStockMagentCommandHandler(IItemMagentoRepository itemMagentoRepository, IItemSAPRepository itemSAPRepository, IMediator mediator) : IRequestHandler<UpdateStockMagentoCommand, Unit>
     {
-        private readonly IItemMagentoRepository _itemMagentoRepository;
-        private readonly IItemSAPRepository _itemSAPRepository;
-        private readonly IMediator _mediator;
-
-        public UpdateStockMagentCommandHandler(IItemMagentoRepository itemMagentoRepository, IItemSAPRepository itemSAPRepository, IMediator mediator)
-        {
-            _itemMagentoRepository = itemMagentoRepository;
-            _itemSAPRepository = itemSAPRepository;   
-            _mediator = mediator;         
-        }
+     
         public async Task<Unit> Handle(UpdateStockMagentoCommand request, CancellationToken cancellationToken)
         {
             StockItemCommand itemMagento;
@@ -27,7 +18,7 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
             UpdateStockMagentoCommand itemMagentoResponse;
             
             //Primeiro busca os itens na Magento
-            Root itensInMagento = await _itemMagentoRepository.GetAllItemsAsync();
+            Root itensInMagento = await itemMagentoRepository.GetAllItemsAsync();
            
             for(int i = 0; i < itensInMagento?.total_count; i++)
             {
@@ -36,7 +27,7 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
                      //Buscar no SAP apenas os itens que existem na Loja Virtual
                 var datas = new GetItemsSAPEstoqueQuery(itensInMagento?.items?[i].sku);
 
-                List<ItemSAPEstoque> itemsInSAP = await _mediator.Send(datas);
+                List<ItemSAPEstoque> itemsInSAP = await mediator.Send(datas);
 
                 foreach(var itemSAP in itemsInSAP)
                 {
@@ -55,7 +46,7 @@ namespace API_SAP_Magento.Mediator.Commands.MagentoCommands.UpdateStockMagento
 
                     itemMagentoResponse = new UpdateStockMagentoCommand(itemMagento);
 
-                     _itemMagentoRepository.UpdateStockMagento(itemMagentoResponse,itemSAP.ItemCode);
+                     itemMagentoRepository.UpdateStockMagento(itemMagentoResponse,itemSAP.ItemCode);
                 }   
                 }catch(Exception ex)
                 {

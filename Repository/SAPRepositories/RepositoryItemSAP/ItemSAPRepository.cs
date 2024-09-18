@@ -1,6 +1,7 @@
 
 using API_SAP_Magento.Helpers.LoginHelper;
 using API_SAP_Magento.Models.SAP;
+using SAPbobsCOM;
 
 namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 {
@@ -14,7 +15,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 
            var company = login.RealizarLogin();
 
-           SAPbobsCOM.Recordset ors = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+           Recordset ors = (Recordset)company.GetBusinessObject(BoObjectTypes.BoRecordset);
            ors.DoQuery(sql);
 
            //Quantidade de Itens no SAP
@@ -43,7 +44,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 
                  string sql = $"SELECT * FROM TJ_ESTOQUE T0 WHERE T0.\"ItemCode\" = '{itemCode}'";
 
-                SAPbobsCOM.Recordset ors = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+                Recordset ors = (Recordset)company.GetBusinessObject(BoObjectTypes.BoRecordset);
                 ors.DoQuery(sql);
                 int quantityItens = ors.RecordCount;
 
@@ -73,7 +74,7 @@ namespace API_SAP_Magento.Repository.SAPRepositories.RepositoryItemSAP
 
              var company = login.RealizarLogin();
 
-            SAPbobsCOM.Recordset ors =  (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+            Recordset ors =  (Recordset)company.GetBusinessObject(BoObjectTypes.BoRecordset);
             ors.DoQuery(sql);
 
             var itemSAP = new ItemSAP(ors.Fields.Item(0).Value.ToString(),
